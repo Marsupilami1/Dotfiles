@@ -1,0 +1,67 @@
+\documentclass[10pt, a4paper, french]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper]{geometry}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{ntheorem-hyper}
+\usepackage{xspace}
+\usepackage{varioref}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{graphicx}
+\usepackage[french]{babel}
+\usepackage{eurosym}
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\po}{\left(}
+\newcommand{\pf}{\right)}
+\newcommand{\pof}[1]{\po #1 \pf}
+\newcommand{\x}{\times}
+\newcommand{\ip}{i\pi}
+\newcommand{\e}[1]{e^{#1}}
+\newcommand{\de}[2]{\e{\frac{#1}{#2}}}
+\newcommand{\pow}[2]{#1^{#2}}
+\newcommand{\inv}[1]{\dfrac{1}{#1}}
+\newcommand{\id}[3]{\po #1 #2 #3\pf^2}
+\newcommand{\bbox}[1]{ \fbox{$#1$}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\interoo}[2]{\left]#1\,;#2\right[}
+\newcommand{\interof}[2]{\left]#1\,;#2\right]}
+\newcommand{\interfo}[2]{\left[#1\,;#2\right[}
+\newcommand{\interff}[2]{\left[#1\,;#2\right]}
+\newcommand{\2}{x^2}
+\newcommand{\3}{x^3}
+\newcommand{\4}{x^4}
+\newcommand{\5}{x^5}
+\newcommand{\6}{x^6}
+
+\newcommand{\cercletrigo}{
+	\draw[->, color=black!70, very thin, >=latex] (-1.1,0) -- node[midway, below left]{$O$} (1.1,0) ;
+	\draw[->, color=black!70, very thin, >=latex] (0,-1.1) -- (0,1.1) ;
+	\draw (0,0) circle(1) ;
+	\draw (1,0) node[below left]{$1$} ;
+	\draw (-1,0) node[below right]{$-1$} ;
+	\draw (0,1) node[below right]{$i$} ;
+	\draw (0,-1) node[above right]{$-i$} ;
+
+	\draw[loosely dashed, color=gray] (-45:1) rectangle (135:1) ;
+	\draw[loosely dashed, color=gray] (-30:1) rectangle (150:1) ;
+	\draw[loosely dashed, color=gray] (-60:1) rectangle (120:1) ;
+
+	\draw (0.5,0) node[below left]{$\frac{1}{2}$} ;
+	\draw (-0.5,0) node[below right]{$-\frac{1}{2}$} ;
+	\draw (0,0.5) node[below right]{$\frac{1}{2}i$} ;
+	\draw (0,-0.5) node[above right]{$-\frac{1}{2}i$} ;
+}

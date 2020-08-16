@@ -1,0 +1,28 @@
+Xterm*locale: true
+Xterm*backarrowKey: false
+Xterm.ttyModes: erase ^?
+Xterm*scrollBar: true
+Xterm*scrollBar.width: 5
+Xterm*translation:
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+*foreground: rgb:ff/ff/ff
+*background: rgb:17/1a/1b
+!*color0: rbg:00/00/00
+!*color1: rbg:9e/18/28
+!*color2: rbg:00/88/00
+!*color3: rbg:96/8a/38
+!*color4: rbg:41/41/71
+!*color5: rbg:96/3c/59
+!*color6: rbg:41/81/79
+!*color7: rbg:be/be/be
+!*color8: rbg:66/66/66
+!*color9: rbg:cf/61/1
+!*color10: rbg:7c/bc/8c
+!*color11: rbg:bf/b7/ff
+!*color12: rbg:41/86/be
+!*color13: rbg:cf/9e/be
+!*color14: rbg:17/be/be
+!*color15: rbg:ff/ff/ff
+*faceName: UbuntuMono: size=12:antialias=true
+

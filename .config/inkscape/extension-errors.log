@@ -1,0 +1,18 @@
+L'extension « EPS Input » n'a pas été chargée, car 
+Dépendance:
+	type: executable
+	emplacement: chemin
+	chaîne: ps2pdf
+
+L'extension « PostScript Input » n'a pas été chargée, car 
+Dépendance:
+	type: executable
+	emplacement: chemin
+	chaîne: ps2pdf
+
+L'extension « XFIG Input » n'a pas été chargée, car 
+Dépendance:
+	type: executable
+	emplacement: chemin
+	chaîne: fig2dev
+

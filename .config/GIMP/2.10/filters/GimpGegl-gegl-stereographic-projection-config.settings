@@ -1,0 +1,12 @@
+# settings
+
+(GimpGegl-gegl-stereographic-projection-config "2020-07-15 22:13:23"
+    (time 1594844003)
+    (pan -121.22)
+    (tilt -43.479999999999997)
+    (spin 22.039999999999999)
+    (zoom 100)
+    (inverse no)
+    (sampler-type nearest))
+
+# end of settings
