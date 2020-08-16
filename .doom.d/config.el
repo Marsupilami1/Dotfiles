@@ -11,7 +11,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Martin Andrieux"
-      user-mail-address "martin.andrieux59@gmail.com")
+			user-mail-address "martin.andrieux59@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -62,11 +62,11 @@
 ;; LaTeX support for Org Mode
 (require 'ox-latex)
 (unless (boundp 'org-latex-classes)
-  (setq org-latex-classes nil))
+	(setq org-latex-classes nil))
 (add-to-list 'org-latex-classes
-             '("article"
-               "\\documentclass{article}"
-               ("\\section{%s}" . "\\section*{%s}")))
+						 '("article"
+							 "\\documentclass{article}"
+							 ("\\section{%s}" . "\\section*{%s}")))
 
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)

@@ -1489,3 +1489,28 @@
 [Modules] Streaming discord_krisp@0 to /home/martin/.config/discord/0.0.11/modules/pending/discord_krisp-0.zip
 [Modules] Failed fetching module discord_krisp@0: Error: HTTP Error: Status Code 403
 [Modules] Finished module downloads. [success: 0] [failure: 1]
+[Modules] Modules initializing
+[Modules] Distribution: remote
+[Modules] Host updates: enabled
+[Modules] Module updates: enabled
+[Modules] Module install path: /home/martin/Dotfiles/.config/discord/0.0.11/modules
+[Modules] Module installed file path: /home/martin/Dotfiles/.config/discord/0.0.11/modules/installed.json
+[Modules] Module download path: /home/martin/Dotfiles/.config/discord/0.0.11/modules/pending
+[Modules] No updates to install
+[Modules] Checking for host updates.
+[Modules] Host is up to date.
+[Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+[Modules] No module updates available.
+[Modules] Starting to install discord_krisp...
+[Modules] Fetching discord_krisp@0 from https://discord.com/api/modules/stable/discord_krisp/0
+[Modules] Streaming discord_krisp@0 to /home/martin/Dotfiles/.config/discord/0.0.11/modules/pending/discord_krisp-0.zip
+[Modules] Failed fetching module discord_krisp@0: Error: HTTP Error: Status Code 403
+[Modules] Finished module downloads. [success: 0] [failure: 1]
+[Modules] Checking for host updates.
+[Modules] Host is up to date.
+[Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+[Modules] No module updates available.
+[Modules] Checking for host updates.
+[Modules] Host is up to date.
+[Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+[Modules] No module updates available.
