@@ -40,7 +40,7 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
-(setq global-prettify-symbols-mode t)
+;;(setq global-prettify-symbols-mode t)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
