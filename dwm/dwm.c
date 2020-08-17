@@ -201,6 +201,7 @@ static void setfocus(Client *c);
 static void setfullscreen(Client *c, int fullscreen);
 static void setlayout(const Arg *arg);
 static void setmfact(const Arg *arg);
+static void setmequal(const Arg *arg);
 static void setup(void);
 static void seturgent(Client *c, int urg);
 static void showhide(Client *c);
@@ -1509,6 +1510,15 @@ setmfact(const Arg *arg)
 	if (f < 0.05 || f > 0.95)
 		return;
 	selmon->mfact = f;
+	arrange(selmon);
+}
+
+void
+setmequal(const Arg *arg)
+{
+	if (!selmon->lt[selmon->sellt]->arrange)
+		return;
+	selmon->mfact = 0.5;
 	arrange(selmon);
 }
 

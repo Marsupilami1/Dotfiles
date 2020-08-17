@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 	[SchemeStatus] = { col_gray3, "#171a1b",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel] = { col_gray4, "#16630c",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm] = { col_gray3, "#171a1b",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel] = { col_gray4, "#005050",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoSel] = { "#000000", col_cyan,  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm] = { col_gray3, "#171a1b",  "#171a1b"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
@@ -34,6 +34,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "feh",      NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -67,6 +68,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "20", "-bw", "1", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", "#000000", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *filemgrcmd[]  = { "pcmanfm", NULL };
 static const char *editcmd[]  = { "geany", NULL };
 static const char *browsercmd[]  = { "firefox", "google.com", NULL };
 static const char *emacscmd[] = { "emacs", NULL };
@@ -75,6 +77,7 @@ static Key keys[] = {
 	/* modifier             key    function        argument */
 	{ MODKEY,               33,    spawn,          {.v = dmenucmd } },// p
 	{ MODKEY,               36,    spawn,          {.v = termcmd } }, // Return
+	{ MODKEY|ShiftMask,     36,    spawn,          {.v = filemgrcmd } }, // Return
 	{ MODKEY,               42,    spawn,          {.v = editcmd } }, // g
 	{ MODKEY,               41,    spawn,          {.v = browsercmd } }, // f
 	{ MODKEY,               26,    spawn,          {.v = emacscmd } }, // e
@@ -85,6 +88,7 @@ static Key keys[] = {
 	{ MODKEY,               40,    incnmaster,     {.i = -1 } },      // d
 	{ MODKEY,               43,    setmfact,       {.f = -0.05} },    // h
 	{ MODKEY,               46,    setmfact,       {.f = +0.05} },    // l
+	{ MODKEY,               21,    setmequal,      {0} },             // =
 	{ MODKEY,               25,    zoom,           {0} },             // z
 	{ MODKEY,               23,    view,           {0} },             // Tab
 	{ MODKEY|ShiftMask,     54,    killclient,     {0} },             // c

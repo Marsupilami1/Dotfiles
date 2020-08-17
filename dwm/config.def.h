@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 	[SchemeStatus] = { col_gray3, "#171a1b",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel] = { col_gray4, "#16630c",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm] = { col_gray3, "#171a1b",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel] = { col_gray4, "#087e00",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoSel] = { "#000000", col_cyan,  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm] = { col_gray3, "#171a1b",  "#171a1b"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
@@ -85,6 +85,7 @@ static Key keys[] = {
 	{ MODKEY,               40,    incnmaster,     {.i = -1 } },      // d
 	{ MODKEY,               43,    setmfact,       {.f = -0.05} },    // h
 	{ MODKEY,               46,    setmfact,       {.f = +0.05} },    // l
+	{ MODKEY,               21,    setmequal,      {0} },             // =
 	{ MODKEY,               25,    zoom,           {0} },             // z
 	{ MODKEY,               23,    view,           {0} },             // Tab
 	{ MODKEY|ShiftMask,     54,    killclient,     {0} },             // c
