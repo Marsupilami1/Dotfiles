@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 	[SchemeStatus] = { col_gray3, "#171a1b",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel] = { col_gray4, "#16630c",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm] = { col_gray3, "#171a1b",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel] = { col_gray4, "#360746",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoSel] = { col_gray4, "#087e00",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm] = { col_gray3, "#171a1b",  "#171a1b"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
@@ -65,7 +65,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "20", "-bw", "1", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "20", "-bw", "1", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", "#000000", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *editcmd[]  = { "geany", NULL };
 static const char *browsercmd[]  = { "firefox", "google.com", NULL };

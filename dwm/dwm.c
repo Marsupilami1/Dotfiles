@@ -474,7 +474,7 @@ cleanup(void)
 	Monitor *m;
 	size_t i;
 
-	system("kill `ps -ely | grep autostart | awk -f\\  '{print $3}' | head -n 1`");
+	system("kill $(ps -ely | grep autostart | awk -F\\  '{print $3}' | head -n 1)");
 
 	view(&a);
 	selmon->lt[selmon->sellt] = &foo;

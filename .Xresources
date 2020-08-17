@@ -7,7 +7,7 @@ Xterm*translation:
     Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
     Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 *foreground: rgb:ff/ff/ff
-*background: rgb:17/1a/1b
+*background: rgb:07/0a/0b
 !*color0: rbg:00/00/00
 !*color1: rbg:9e/18/28
 !*color2: rbg:00/88/00
