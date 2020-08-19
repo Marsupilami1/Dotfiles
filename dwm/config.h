@@ -66,11 +66,11 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "20", "-bw", "1", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", "#000000", NULL };
-static const char *termcmd[]  = { "tabbed -c alacritty --embed", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-l", "20", "-bw", "1", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", "#000000", NULL };
+static const char *termcmd[]  = { "tabbed", "-c", "alacritty", "--embed", NULL };
 static const char *filemgrcmd[]  = { "pcmanfm", NULL };
 static const char *editcmd[]  = { "geany", NULL };
-static const char *browsercmd[]  = { "tabbed -c surf -e", NULL };
+static const char *browsercmd[]  = { "tabbed", "-c", "surf", "-e", NULL };
 static const char *emacscmd[] = { "emacs", NULL };
 
 static Key keys[] = {
@@ -103,6 +103,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,     65,    togglefloating, {0} },             // space
 	{ MODKEY,               19,    view,           {.ui = ~0 } },     // 0
 	{ MODKEY|ShiftMask,     19,    tag,            {.ui = ~0 } },     // 0
+	{ MODKEY,               30,    focusmon,       {.i = -1 } },      // u
+	{ MODKEY,               32,    focusmon,       {.i = +1 } },      // o
+	{ MODKEY|ShiftMask,     30,    tagmon,         {.i = -1 } },      // u
+	{ MODKEY|ShiftMask,     32,    tagmon,         {.i = +1 } },      // o
 	{ MODKEY,               113,   focusmon,       {.i = -1 } },      // left arrow
 	{ MODKEY,               114,   focusmon,       {.i = +1 } },      // right arrow
 	{ MODKEY|ShiftMask,     113,   tagmon,         {.i = -1 } },      // left arrow
