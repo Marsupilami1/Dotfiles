@@ -33,8 +33,8 @@ s=$(printf %s "${q#* }" | tr -d '\n' | od -t x1 -An |  tr ' ' '%')
 # 'w' = wikipedia.org
 # 'a' = wiki.archlinux.org
 case $e in
-	's')
-		xprop -id $1 -f _SURF_GO 8s -set _SURF_GO "https://startpage.com/do/search?q=${s}"
+	'd')
+		xprop -id $1 -f _SURF_GO 8s -set _SURF_GO "https://duckduckgo.com/?q=${s}"
 		;;
 	'w')
 		xprop -id $1 -f _SURF_GO 8s -set _SURF_GO "https://fr.wikipedia.org/wiki/index.php/Special:Search?search=${s}&go=Go"
