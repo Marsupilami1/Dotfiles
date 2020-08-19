@@ -29,6 +29,8 @@ function hintHandler(e){
 		var hint_num = Number(hint_num_str);
 		if (hint_num * 10 > hint_elems.length + 1)
 			judgeHintNum(hint_num);
+	} else if (pressedKey != 'Shift') {
+		removeHints();
 	}
 }
 
