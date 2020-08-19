@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# kill -9 $(ps -ely | grep autostart | awk -F\  '{print $3}')
+xbindkeys # luminosité et son
+xinput set-prop "Synaptics TM3336-001" "libinput Tapping Enabled" 1 # track apd
 
-xbindkeys
-xinput set-prop "Synaptics TM3336-001" "libinput Tapping Enabled" 1
-
-feh --bg-fill Fractal.png &
-/home/martin/Documents/Travail/Prog/C/Mandelbrot/mandelbrotppm/Mandelbrotppm &
+#feh --bg-fill Fractal.png &
+#/home/martin/Documents/Travail/Prog/C/Mandelbrot/mandelbrotppm/Mandelbrotppm &
+~/.fehbg
 
 dte(){
     dte="$(date +"%H:%M")"

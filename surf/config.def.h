@@ -7,14 +7,14 @@ static char *certdir        = "~/.surf/certificates/";
 static char *cachedir       = "~/.surf/cache/";
 static char *cookiefile     = "~/.surf/cookies.txt";
 static char *linkselect_curwin [] = { "/bin/sh", "-c",
-	"/home/martin/myScripts/surf_linkselect.sh $0 'Link' | xargs -r xprop -id $0 -f _SURF_GO 8s -set _SURF_GO",
+	"/home/martin/myScripts/surfScripts/surf_linkselect.sh $0 'Link' | xargs -r xprop -id $0 -f _SURF_GO 8s -set _SURF_GO",
 	winid, NULL
 };
 static char *linkselect_newwin [] = { "/bin/sh", "-c",
-	"/home/martin/myScripts/surf_linkselect.sh $0 'Link (new window)' | xargs -r surf",
+	"/home/martin/myScripts/surfScripts/surf_linkselect.sh $0 'Link (new window)' | xargs -r surf",
 	winid, NULL
 };
-static char *editscreen[] = { "/bin/sh", "-c", "edit_screen.sh", NULL };
+static char *editscreen[] = { "/bin/sh", "-c", "/home/martin/myScripts/surfScripts/edit_screen.sh", NULL };
 
 /* Webkit default features */
 /* Highest priority value will be used.
@@ -111,6 +111,11 @@ static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
         } \
 }
 
+/* QUICK SEARCHING */
+#define QSEARCH { \
+	.v = (char *[]){"/bin/sh", "-c", "/home/martin/myScripts/surfScripts/surf_qsearch $0 $1", winid, NULL } \
+}
+
 /* styles */
 /*
  * The iteration will stop at the first match, beginning at the beginning of
@@ -139,10 +144,11 @@ static SiteSpecific certs[] = {
  */
 static Key keys[] = {
 	/* modifier              keyval          function    arg */
-	{ 0,                     GDK_KEY_g,      spawn,      SETPROP("_SURF_URI", "_SURF_GO", PROMPT_GO) },
-	{ 0,                     GDK_KEY_f,      spawn,      SETPROP("_SURF_FIND", "_SURF_FIND", PROMPT_FIND) },
+	// { 0,                     GDK_KEY_g,      spawn,      SETPROP("_SURF_URI", "_SURF_GO", PROMPT_GO) },
+	{ MODKEY,                GDK_KEY_f,      spawn,      SETPROP("_SURF_FIND", "_SURF_FIND", PROMPT_FIND) },
 	{ 0,                     GDK_KEY_slash,  spawn,      SETPROP("_SURF_FIND", "_SURF_FIND", PROMPT_FIND) },
-
+	
+	{ 0,                     GDK_KEY_space,  spawn,      QSEARCH },
 	{ 0,                     GDK_KEY_i,      insert,     { .i = 1 } },
 	{ 0,                     GDK_KEY_Escape, insert,     { .i = 0 } },
 
@@ -151,16 +157,16 @@ static Key keys[] = {
 	{ MODKEY,                GDK_KEY_r,      reload,     { .i = 1 } },
 	{ 0,                     GDK_KEY_r,      reload,     { .i = 0 } },
 
-	{ 0,                     GDK_KEY_l,      navigate,   { .i = +1 } },
-	{ 0,                     GDK_KEY_h,      navigate,   { .i = -1 } },
+	{ 0|GDK_SHIFT_MASK,      GDK_KEY_l,      navigate,   { .i = +1 } },
+	{ 0|GDK_SHIFT_MASK,      GDK_KEY_h,      navigate,   { .i = -1 } },
 
 	/* vertical and horizontal scrolling, in viewport percentage */
 	{ 0,                     GDK_KEY_j,      scrollv,    { .i = +10 } },
 	{ 0,                     GDK_KEY_k,      scrollv,    { .i = -10 } },
 	{ 0,                     GDK_KEY_space,  scrollv,    { .i = +50 } },
 	{ 0,                     GDK_KEY_b,      scrollv,    { .i = -50 } },
-	{ 0,                     GDK_KEY_i,      scrollh,    { .i = +10 } },
-	{ 0,                     GDK_KEY_u,      scrollh,    { .i = -10 } },
+	{ 0,                     GDK_KEY_l,      scrollh,    { .i = +10 } },
+	{ 0,                     GDK_KEY_h,      scrollh,    { .i = -10 } },
 
 
 	{ 0|GDK_SHIFT_MASK,      GDK_KEY_j,      zoom,       { .i = -1 } },
@@ -192,7 +198,7 @@ static Key keys[] = {
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_b,      toggle,     { .i = ScrollBars } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_t,      toggle,     { .i = StrictTLS } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_m,      toggle,     { .i = Style } },
-	{ MODKEY,                GDK_KEY_d, externalpipe, { .v = linkselect_curwin } },
+	// { 0,                     GDK_KEY_f, externalpipe, { .v = linkselect_curwin } },
 	{ GDK_SHIFT_MASK|MODKEY, GDK_KEY_d, externalpipe, { .v = linkselect_newwin } },
 	{ MODKEY,                GDK_KEY_o, externalpipe, { .v = editscreen        } },
 };
@@ -209,4 +215,4 @@ static Button buttons[] = {
 	{ OnMedia,      MODKEY,         1,      clickexternplayer, { 0 },       1 },
 };
 
-#define HOMEPAGE "https://duckduckgo.com/"
+#define HOMEPAGE "https://startpage.com/"
