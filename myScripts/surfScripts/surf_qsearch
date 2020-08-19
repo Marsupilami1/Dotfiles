@@ -19,7 +19,7 @@
 # Get the full query. The 'echo | dmenu' idiom may be a bit of
 # a hack, but it seems to work.
 
-q="$(echo | dmenu)"
+q="$(echo | dmenu -bw 1 -fn 'UbuntuMono:size=11' -nb '#222222' -nf '#bbbbbb' -sb '#ff8000' -sf '#000000')"
 [ -z "$q" ] && exit 0
 # Extract the engine code.
 e="${q%% *}"

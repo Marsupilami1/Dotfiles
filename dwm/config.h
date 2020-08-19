@@ -67,10 +67,10 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "20", "-bw", "1", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", "#000000", NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "tabbed -c alacritty --embed", NULL };
 static const char *filemgrcmd[]  = { "pcmanfm", NULL };
 static const char *editcmd[]  = { "geany", NULL };
-static const char *browsercmd[]  = { "firefox", "startpage.com", NULL };
+static const char *browsercmd[]  = { "tabbed -c surf -e", NULL };
 static const char *emacscmd[] = { "emacs", NULL };
 
 static Key keys[] = {
