@@ -202,6 +202,8 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
     ;;
 esac
 
+test -r /home/martin/.opam/opam-init/init.zsh && . /home/martin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
 # automatic ls after cd
 chpwd() ls
 
