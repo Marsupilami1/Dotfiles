@@ -187,6 +187,7 @@ static void pop(Client *);
 static void propertynotify(XEvent *e);
 static void quit(const Arg *arg);
 static Monitor *recttomon(int x, int y, int w, int h);
+static void reorganizetags(const Arg *arg);
 static void resize(Client *c, int x, int y, int w, int h, int interact);
 static void resizeclient(Client *c, int x, int y, int w, int h);
 static void resizemouse(const Arg *arg);
@@ -234,6 +235,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
+
 static void centeredmaster(Monitor *m);
 static void centeredfloatingmaster(Monitor *m);
 
@@ -1230,7 +1232,17 @@ propertynotify(XEvent *e)
 void
 quit(const Arg *arg)
 {
-	running = 0;
+	unsigned int n;
+	Window *junk = malloc(1);
+
+	XQueryTree(dpy, root, junk, junk, &junk, &n);
+
+	if (n <= EMPTY_WINDOW_COUNT)
+		running = 0;
+	else
+		printf("[dwm] not exiting (n=%d)\n", n);
+
+	free(junk);
 }
 
 Monitor *
@@ -1245,6 +1257,34 @@ recttomon(int x, int y, int w, int h)
 			r = m;
 		}
 	return r;
+}
+
+void
+reorganizetags(const Arg *arg)
+{
+	Client *c;
+	unsigned int occ, unocc, i;
+	unsigned int tagdest[LENGTH(tags)];
+
+	occ = 0;
+	for (c = selmon->clients; c; c = c->next)
+		occ |= (1 << (ffs(c->tags)-1));
+	unocc = 0;
+	for (i = 0; i < LENGTH(tags); ++i) {
+		while (unocc < i && (occ & (1 << unocc)))
+			unocc++;
+		if (occ & (1 << i)) {
+			tagdest[i] = unocc;
+			occ &= ~(1 << i);
+			occ |= 1 << unocc;
+		}
+	}
+
+	for (c = selmon->clients; c; c = c->next)
+		c->tags = 1 << tagdest[ffs(c->tags)-1];
+	if (selmon->sel)
+		selmon->tagset[selmon->seltags] = selmon->sel->tags;
+	arrange(selmon);
 }
 
 void

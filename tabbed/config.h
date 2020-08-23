@@ -2,9 +2,9 @@
 
 /* appearance */
 static const char font[]        = "Ubuntu Mono:size=9";
-static const char* normbgcolor  = "#171a1b";
+static const char* normbgcolor  = "#333333";
 static const char* normfgcolor  = "#dddddd";
-static const char* selbgcolor   = "#333333";
+static const char* selbgcolor   = "#171a1b";
 static const char* selfgcolor   = "#ffffff";
 static const char* urgbgcolor   = "#111111";
 static const char* urgfgcolor   = "#cc0000";

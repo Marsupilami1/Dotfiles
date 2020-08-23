@@ -17,9 +17,9 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeStatus] = { col_gray3, "#171a1b",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeStatus] = { "#ffffff", "#370037",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel] = { "#ffffff", "#16630c",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm] = { col_gray3, "#171a1b",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm] = { col_gray3, "#370037",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
 	[SchemeInfoSel] = { col_cyan, "#171a1b",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm] = { col_gray3, "#171a1b",  "#171a1b"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
@@ -45,10 +45,10 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "|M|",      centeredmaster },   /* first entry is default */
+	{ "[]=",      tile },
 	{ "[M]",      monocle },
-	{ "|M|",      centeredmaster },
+	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ ">M>",      centeredfloatingmaster },
 	{ NULL, 	  NULL },
 };
@@ -73,6 +73,7 @@ static const char *editcmd[]  = { "geany", NULL };
 static const char *browsercmd[]  = { "tabbed", "-c", "surf", "-e", NULL };
 static const char *emacscmd[] = { "emacs", NULL };
 
+#include "movestack.c"
 static Key keys[] = {
 	/* modifier             key    function        argument */
 	{ MODKEY,               33,    spawn,          {.v = dmenucmd } },// p
@@ -84,10 +85,13 @@ static Key keys[] = {
 	{ MODKEY,               56,    togglebar,      {0} },             // b
 	{ MODKEY,               44,    focusstack,     {.i = +1 } },      // j
 	{ MODKEY,               45,    focusstack,     {.i = -1 } },      // k
+	{ MODKEY|ShiftMask,     44,    movestack,      {.i = +1 } },      // j
+	{ MODKEY|ShiftMask,     45,    movestack,      {.i = -1 } },      // k
 	{ MODKEY,               31,    incnmaster,     {.i = +1 } },      // i
 	{ MODKEY,               40,    incnmaster,     {.i = -1 } },      // d
 	{ MODKEY,               43,    setmfact,       {.f = -0.05} },    // h
 	{ MODKEY,               46,    setmfact,       {.f = +0.05} },    // l
+	{ MODKEY,               27,    reorganizetags, {0} },             // r
 	{ MODKEY,               21,    setmequal,      {0} },             // =
 	{ MODKEY,               25,    zoom,           {0} },             // z
 	{ MODKEY,               23,    view,           {0} },             // Tab
@@ -97,8 +101,8 @@ static Key keys[] = {
 	{ MODKEY,               69,    setlayout,      {.v = &layouts[2]} }, // f3
 	{ MODKEY,               70,    setlayout,      {.v = &layouts[3]} }, // f4
 	{ MODKEY,               71,    setlayout,      {.v = &layouts[4]} }, // f5
-	{ MODKEY|ControlMask,	59,    cyclelayout,    {.i = -1 } },	  // comma
-	{ MODKEY|ControlMask,	60,    cyclelayout,    {.i = +1 } },      // period
+	{ MODKEY|ControlMask,	30,    cyclelayout,    {.i = -1 } },	  // u
+	{ MODKEY|ControlMask,	32,    cyclelayout,    {.i = +1 } },      // o
 	{ MODKEY,               65,    setlayout,      {0} },             // space
 	{ MODKEY|ShiftMask,     65,    togglefloating, {0} },             // space
 	{ MODKEY,               19,    view,           {.ui = ~0 } },     // 0
@@ -140,3 +144,5 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
+/* quitting */
+static const int EMPTY_WINDOW_COUNT = 4;
