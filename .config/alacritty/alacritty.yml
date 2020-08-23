@@ -221,7 +221,7 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#000000'
+    black:   '#171a1b'
     red:     '#c13900'
     green:   '#a4a900'
     yellow:  '#caaf00'
