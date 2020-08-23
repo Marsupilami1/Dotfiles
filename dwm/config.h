@@ -17,11 +17,11 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeStatus] = { "#ffffff", "#370037",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel] = { "#ffffff", "#16630c",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm] = { col_gray3, "#370037",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel] = { col_cyan, "#171a1b",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm] = { col_gray3, "#171a1b",  "#171a1b"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeStatus] = { "#ffffff", "#171a1b",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel] = { "#ffffff", "#ff8000",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm] = { "#ffffff", "#171a1b",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel] = { "#000000", "#009090",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm] = { col_gray3, "#263238",  "#171a1b"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -145,4 +145,4 @@ static Button buttons[] = {
 };
 
 /* quitting */
-static const int EMPTY_WINDOW_COUNT = 4;
+static const int EMPTY_WINDOW_COUNT = 10;

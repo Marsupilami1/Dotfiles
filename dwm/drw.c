@@ -243,7 +243,9 @@ drw_rect(Drw *drw, int x, int y, unsigned int w, unsigned int h, int filled, int
 		return;
 	XSetForeground(drw->dpy, drw->gc, invert ? drw->scheme[ColBg].pixel : drw->scheme[ColFg].pixel);
 	if (filled)
+	{
 		XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, y, w, h);
+	}
 	else
 		XDrawRectangle(drw->dpy, drw->drawable, drw->gc, x, y, w - 1, h - 1);
 }
@@ -273,7 +275,16 @@ drw_text(Drw *drw, int x, int y, unsigned int w, unsigned int h, unsigned int lp
 		w = ~w;
 	} else {
 		XSetForeground(drw->dpy, drw->gc, drw->scheme[invert ? ColFg : ColBg].pixel);
-		XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, y, w, h);
+	
+		/* for normal style */
+		// XFillRectangle(drw->dpy, drw->drawable, drw->gc, x+h/2, y, w-h/2, h);
+		/* for powerline style */
+		unsigned int h2 = h >> 1;
+		XPoint points[4] = {{x, y+h2},{x+w+h2,y+h2},{x+w,y},{x-h2,y}};
+		XFillPolygon(drw->dpy, drw->drawable, drw->gc, points, 4, Convex, CoordModeOrigin);
+		XPoint points2[4] = {{x, y+h2},{x+w+h2,y+h2},{x+w,y+h},{x-h2,y+h}};
+		XFillPolygon(drw->dpy, drw->drawable, drw->gc, points2, 4, Convex, CoordModeOrigin);
+		
 		d = XftDrawCreate(drw->dpy, drw->drawable,
 		                  DefaultVisual(drw->dpy, drw->screen),
 		                  DefaultColormap(drw->dpy, drw->screen));

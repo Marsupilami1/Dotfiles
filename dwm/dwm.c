@@ -739,7 +739,7 @@ drawbar(Monitor *m)
 	for (i = 0; i < LENGTH(tags); i++) {
 		w = TEXTW(tags[i]);
 		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeTagsSel : SchemeTagsNorm]);
-		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
+		drw_text(drw, x, 0, w, bh, lrpad / 4, tags[i], urg & 1 << i);
 		if (occ & 1 << i)
 			drw_rect(drw, x + boxs, boxs, boxw, boxw,
 				m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
@@ -759,7 +759,15 @@ drawbar(Monitor *m)
 				drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
 		} else {
 			drw_setscheme(drw, scheme[SchemeInfoNorm]);
-			drw_rect(drw, x, 0, w, bh, 1, 1);
+			/* normal style */
+			// drw_rect(drw, x, 0, w, bh, 1, 1);
+			/* power line style */
+			XSetForeground(drw->dpy, drw->gc, drw->scheme[ColBg].pixel);
+			unsigned int h2 = bh >> 1;
+			XPoint points[4] = {{x,h2},{x+w+h2,h2},{x+w,0},{x-h2,0}};
+			XFillPolygon(drw->dpy, drw->drawable, drw->gc, points, 4, Convex, CoordModeOrigin);
+			XPoint points2[4] = {{x,h2},{x+w+h2,h2},{x+w,bh},{x-h2,bh}};
+			XFillPolygon(drw->dpy, drw->drawable, drw->gc, points2, 4, Convex, CoordModeOrigin);
 		}
 	}
 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
