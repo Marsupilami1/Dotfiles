@@ -16,10 +16,10 @@ tot=26520000 # /sys/class/power_supply/BAT0/energy_now à 100%
 bty(){
 	n=`cat /sys/class/power_supply/BAT0/energy_now`
 	percentage=$(($n*100/$tot))
-	numb=$((percentage/5))
-	loadbar=$(printf '▮%.0s' $(seq -s\  1 $numb))
-	spaces=$(printf ' %.0s' $(seq -s\  1 $((20-$numb))))
-	echo -e "$percentage % '$loadbar$spaces'"
+	numb=$((percentage*15/100))
+	loadbar=$(printf '▰%.0s' $(seq -s\  1 $numb))
+	spaces=$(printf ' %.0s' $(seq -s\  1 $((15-$numb))))
+	echo -e "$percentage % /$loadbar$spaces/"
 }
 
 while true; do
