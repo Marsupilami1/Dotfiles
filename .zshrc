@@ -56,13 +56,14 @@ alias cp="cp -i"                                                # Confirm before
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
 alias gitu='git add . && git commit && git push'
-alias ls='exa --color=always'
+alias ls="EXA_COLORS='di=38;5;33' exa --color=always --group-directories-first"
 alias la='ls -a'
 alias ll='ls -l'
 alias lt='ls -T'
 alias lla='ls -la'
 alias prepa='cd ~/Documents/Travail/Prepa'
 alias prog='cd ~/Documents/Travail/Prog'
+alias tipe='cd ~/Documents/Travail/Prepa/TIPE'
 alias clear='clear && ls'
 alias gc='git checkout'
 alias compile='g++ -Wall -std=c++17 -O2 -c *.cpp && g++ -Wall -std=c++17 -O2 -o main *.o -lsfml-graphics -lsfml-window -lsfml-system'
@@ -77,7 +78,7 @@ setopt prompt_subst
 # Prompt (on left side) similar to default bash prompt, or redhat zsh prompt with colors
  #PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
 # Maia prompt
-PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[cyan]%}>%B%(?.%{$fg[cyan]%}.%{$fg[red]%})>%{$reset_color%}%b " # Print some system information when the shell is first started
+PROMPT="%B%{$fg[green]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[green]%}>%B%(?.%{$fg[green]%}.%{$fg[red]%})>%{$reset_color%}%b " # Print some system information when the shell is first started
 
 ## Prompt on right side:
 #  - shows status of git when in git repository (code adapted from https://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)

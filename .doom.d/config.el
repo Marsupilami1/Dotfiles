@@ -61,6 +61,7 @@
 
 ;; LaTeX support for Org Mode
 (require 'ox-latex)
+(require 'org-bullets)
 (unless (boundp 'org-latex-classes)
 	(setq org-latex-classes nil))
 (add-to-list 'org-latex-classes
@@ -71,3 +72,13 @@
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)
 (setq-default indent-tabs-mode t)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)
+   (latex . t)
+   (C . t)
+   (ocaml . t)
+   (sh . t)
+   (sql . t)))

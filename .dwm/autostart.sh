@@ -2,10 +2,11 @@
 
 xbindkeys # luminosité et son
 xinput set-prop "Synaptics TM3336-001" "libinput Tapping Enabled" 1 # track apd
+emacs --bg-daemon &
 
-feh --bg-fill Fractal.png &
-/home/martin/Documents/Travail/Prog/C/Mandelbrot/mandelbrotppm/Mandelbrotppm &
-# ~/.fehbg
+#feh --bg-fill Fractal.png &
+#/home/martin/Documents/Travail/Prog/C/Mandelbrot/mandelbrotppm/Mandelbrotppm &
+~/.fehbg
 
 dte(){
 	dte="$(date +"%H:%M")"

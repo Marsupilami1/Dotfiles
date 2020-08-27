@@ -139,9 +139,9 @@ font:
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
-  #offset:
+  offset:
           #  x: 0
-          #  y: 0
+            y: 1
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -163,8 +163,9 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#171a1b'
-    foreground: '#ffffff'
+      #background: '#1f172f'
+    background: '#161227'
+    foreground: '#f5fdca'
 
     # Bright and dim foreground colors
     #
@@ -219,48 +220,26 @@ colors:
   #    background: CellForeground
   #    foreground: CellBackground
 
-  # Normal colors
   normal:
-    black:   '#171a1b'
-    red:     '#c13900'
-    green:   '#a4a900'
-    yellow:  '#caaf00'
-    blue:    '#bd6d00'
-    magenta: '#fc5e00'
-    cyan:    '#f79500'
-    white:   '#ffc88a'
-
-  # bright colors
+    black:   '#050004'
+    red:     '#dd4040'
+    green:   '#069e50'
+    yellow:  '#d0d00f'
+    blue:    '#3b50ff'
+    magenta: '#9000b6'
+    cyan:    '#0cc292'
+    white:   '#c9d3ee'
+  
+  # Bright colors
   bright:
-    black:   '#6a4f2a'
-    red:     '#ff8c68'
-    green:   '#e9f13e'
-    yellow:  '#ffe36e'
-    blue:    '#ffbe55'
-    magenta: '#fc874f'
-    cyan:    '#c69752'
-    white:   '#fafaff'
-    #
-    #  normal:
-    #    black:   '#151515'
-    #    red:     '#b84000'
-    #    green:   '#52a100'
-    #    yellow:  '#e3d600'
-    #    blue:    '#25d5d0'
-    #    magenta: '#9000b6'
-    #    cyan:    '#f4a702'
-    #    white:   '#c5c5c6'
-    #
-    #  # Bright colors
-    #  bright:
-    #    black:   '#555555'
-    #    red:     '#ee7000'
-    #    green:   '#33b900'
-    #    yellow:  '#f0f000'
-    #    blue:    '#7500eb'
-    #    magenta: '#de00ff'
-    #    cyan:    '#ff8000'
-    #    white:   '#ffffff'
+    black:   '#4e4e6c'
+    red:     '#ff5959'
+    green:   '#0cec80'
+    yellow:  '#ffff00'
+    blue:    '#6161ff'
+    magenta: '#de00ff'
+    cyan:    '#4cdddd'
+    white:   '#f3fbcc'
 
   # Dim colors
   #
@@ -331,7 +310,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 1.0
+background_opacity: 1.0
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -342,14 +321,14 @@ colors:
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
 
-#cursor:
+cursor:
   # Cursor style
   #
   # Values for `style`:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  #style: Block
+  style: Underline
 
   # Vi mode cursor style
   #
@@ -357,7 +336,7 @@ colors:
   # the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
-  #vi_mode_style: None
+  vi_mode_style: Beam
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.

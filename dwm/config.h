@@ -16,17 +16,18 @@ static const char col_cyan[]        = "#ff8000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  "#ff8000"  },
 	[SchemeStatus] = { "#ffffff", "#354a55",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel] = { "#ffffff", "#ff8000",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsSel] = { "#000000", "#00dd00",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNormP] = { "#ffffff", "#171a1b",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeTagsNormI] = { "#171a1b", "#777777",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel] = { "#000000", "#009090",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeTagsNormI] = { "#ffffff", "#7f3f4b",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel] = { "#000000", "#2d274c",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm] = { "#ffffff", "#263238",  "#171a1b"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+// static const char *tags[] = { ">_", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -68,20 +69,24 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-l", "20", "-bw", "1", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", "#000000", NULL };
-static const char *termcmd[]  = { "tabbed", "-c", "alacritty", "--embed", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termtabcmd[]  = { "tabbed", "-c", "alacritty", "--embed", NULL };
 static const char *filemgrcmd[]  = { "pcmanfm", NULL };
 static const char *editcmd[]  = { "geany", NULL };
-static const char *browsercmd[]  = { "tabbed", "-c", "surf", "-e", NULL };
-static const char *emacscmd[] = { "emacs", NULL };
+static const char *surfcmd[]  = { "tabbed", "-c", "surf", "-e", NULL };
+static const char *frfxcmd[]  = { "firefox", NULL };
+static const char *emacscmd[] = { "emacsclient", "-create-frame", "--alternate-editor=''", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
 	/* modifier             key    function        argument */
 	{ MODKEY,               33,    spawn,          {.v = dmenucmd } },// p
 	{ MODKEY,               36,    spawn,          {.v = termcmd } }, // Return
+	{ MODKEY,               22,    spawn,          {.v = termtabcmd } }, // BackSpace
 	{ MODKEY|ShiftMask,     36,    spawn,          {.v = filemgrcmd } }, // Return
 	{ MODKEY,               42,    spawn,          {.v = editcmd } }, // g
-	{ MODKEY,               41,    spawn,          {.v = browsercmd } }, // f
+	{ MODKEY,               41,    spawn,          {.v = frfxcmd } }, // f
+	{ MODKEY,               39,    spawn,          {.v = surfcmd } }, // s
 	{ MODKEY,               26,    spawn,          {.v = emacscmd } }, // e
 	{ MODKEY,               56,    togglebar,      {0} },             // b
 	{ MODKEY,               44,    focusstack,     {.i = +1 } },      // j
@@ -102,6 +107,11 @@ static Key keys[] = {
 	{ MODKEY,               69,    setlayout,      {.v = &layouts[2]} }, // f3
 	{ MODKEY,               70,    setlayout,      {.v = &layouts[3]} }, // f4
 	{ MODKEY,               71,    setlayout,      {.v = &layouts[4]} }, // f5
+	{ MODKEY,               87,    setlayout,      {.v = &layouts[0]} }, // num_1
+	{ MODKEY,               88,    setlayout,      {.v = &layouts[1]} }, // num_2
+	{ MODKEY,               89,    setlayout,      {.v = &layouts[2]} }, // num_3
+	{ MODKEY,               83,    setlayout,      {.v = &layouts[3]} }, // num_4
+	{ MODKEY,               84,    setlayout,      {.v = &layouts[4]} }, // num_5
 	{ MODKEY|ControlMask,	30,    cyclelayout,    {.i = -1 } },	  // u
 	{ MODKEY|ControlMask,	32,    cyclelayout,    {.i = +1 } },      // o
 	{ MODKEY,               65,    setlayout,      {0} },             // space
