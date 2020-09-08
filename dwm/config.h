@@ -17,17 +17,16 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  "#ff8000"  },
-	[SchemeStatus] = { "#ffffff", "#354a55",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel] = { "#000000", "#00dd00",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNormP] = { "#ffffff", "#171a1b",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeTagsNormI] = { "#ffffff", "#7f3f4b",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel] = { "#000000", "#2d274c",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeStatus] = { "#ffffff", "#32204a",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel] = { "#000000", "#dcead1",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNormP] = { "#ffffff", "#322d4f",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeTagsNormI] = { "#ffffff", "#1a2235",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel] = { "#d8e1e8", "#7b6896",  "#360746"  }, // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm] = { "#ffffff", "#263238",  "#171a1b"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-// static const char *tags[] = { ">_", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -154,6 +153,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
-/* quitting */
-static const int EMPTY_WINDOW_COUNT = 15;

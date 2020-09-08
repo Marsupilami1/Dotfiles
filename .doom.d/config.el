@@ -11,7 +11,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Martin Andrieux"
-			user-mail-address "martin.andrieux59@gmail.com")
+      user-mail-address "martin.andrieux59@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -23,8 +23,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+;; (setq doom-font (font-spec :family "Dejavu Sans Mono" :size 12))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -63,11 +62,11 @@
 (require 'ox-latex)
 (require 'org-bullets)
 (unless (boundp 'org-latex-classes)
-	(setq org-latex-classes nil))
+  (setq org-latex-classes nil))
 (add-to-list 'org-latex-classes
-						 '("article"
-							 "\\documentclass{article}"
-							 ("\\section{%s}" . "\\section*{%s}")))
+	     '("article"
+	       "\\documentclass{article}"
+	       ("\\section{%s}" . "\\section*{%s}")))
 
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)
