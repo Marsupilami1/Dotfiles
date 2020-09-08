@@ -2,6 +2,7 @@
 
 xbindkeys # luminosité et son
 xinput set-prop "Synaptics TM3336-001" "libinput Tapping Enabled" 1 # track apd
+picom &
 emacs --bg-daemon &
 
 #feh --bg-fill Fractal.png &
