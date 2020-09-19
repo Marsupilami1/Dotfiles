@@ -163,7 +163,7 @@ font:
 colors:
   # Default colors
   primary:
-      #background: '#1f172f'
+      #background: '#161227'
     background: '#161227'
     foreground: '#f5fdca'
 

@@ -61,11 +61,14 @@ alias la='ls -a'
 alias ll='ls -l'
 alias lt='ls -T'
 alias lla='ls -la'
+alias :q='exit'
 alias prepa='cd ~/Documents/Travail/Prepa'
 alias prog='cd ~/Documents/Travail/Prog'
 alias tipe='cd ~/Documents/Travail/Prepa/TIPE'
 alias clear='clear && ls'
 alias gc='git checkout'
+alias gcc="LC_MESSAGES='en_US.UTF8' gcc"
+alias g++="LC_MESSAGES='en_US.UTF8' g++"
 alias compile='g++ -Wall -std=c++17 -O2 -c *.cpp && g++ -Wall -std=c++17 -O2 -o main *.o -lsfml-graphics -lsfml-window -lsfml-system'
 # Theming section  
 autoload -U compinit colors zcalc

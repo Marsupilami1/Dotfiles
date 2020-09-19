@@ -81,3 +81,8 @@
    (ocaml . t)
    (sh . t)
    (sql . t)))
+
+(with-eval-after-load 'flycheck
+  (require 'flycheck-grammalecte)
+  (add-to-list 'flycheck-grammalecte-enabled-modes 'org-mode)
+  (flycheck-grammalecte-setup))
