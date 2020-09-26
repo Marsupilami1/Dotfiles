@@ -74,6 +74,7 @@ static const char *filemgrcmd[]  = { "pcmanfm", NULL };
 static const char *editcmd[]  = { "geany", NULL };
 static const char *surfcmd[]  = { "tabbed", "-c", "surf", "-e", NULL };
 static const char *frfxcmd[]  = { "firefox", NULL };
+static const char *mathcmd[]  = { "/home/martin/myScripts/dmenuScripts/math_to_tex.sh", NULL };
 static const char *emacscmd[] = { "emacsclient", "-create-frame", "--alternate-editor=''", NULL };
 
 #include "movestack.c"
@@ -85,6 +86,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,     36,    spawn,          {.v = filemgrcmd } }, // Return
 	{ MODKEY,               42,    spawn,          {.v = editcmd } }, // g
 	{ MODKEY,               41,    spawn,          {.v = frfxcmd } }, // f
+	{ MODKEY,               47,    spawn,          {.v = mathcmd } }, // m
 	{ MODKEY,               39,    spawn,          {.v = surfcmd } }, // s
 	{ MODKEY,               26,    spawn,          {.v = emacscmd } }, // e
 	{ MODKEY,               56,    togglebar,      {0} },             // b

@@ -28,7 +28,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-tomorrow-night)
+(setq doom-theme 'doom-horizon)
 ;;(setq doom-font (font-spec :family "Ubuntu Mono" :size 15))
 
 
@@ -60,7 +60,9 @@
 
 ;; LaTeX support for Org Mode
 (require 'ox-latex)
-(require 'org-bullets)
+(after! org
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
 (add-to-list 'org-latex-classes
