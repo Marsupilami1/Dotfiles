@@ -12,7 +12,7 @@ set smartindent
 set smarttab
 set mouse=a
 set number
-colo myOblivion
+colo codedark
 set termguicolors
 set bo=all
 set showcmd

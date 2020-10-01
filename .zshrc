@@ -70,6 +70,7 @@ alias gc='git checkout'
 alias gcc="LC_MESSAGES='en_US.UTF8' gcc"
 alias g++="LC_MESSAGES='en_US.UTF8' g++"
 alias compile='g++ -Wall -std=c++17 -O2 -c *.cpp && g++ -Wall -std=c++17 -O2 -o main *.o -lsfml-graphics -lsfml-window -lsfml-system'
+alias gompile='g++ -Wall -std=c++17 -Og -c *.cpp && g++ -Wall -std=c++17 -Og -o main *.o -lsfml-graphics -lsfml-window -lsfml-system'
 alias meteo='curl wttr.in/Rouen'
 
 # Theming section  
