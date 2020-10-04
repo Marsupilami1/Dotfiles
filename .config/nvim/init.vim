@@ -11,7 +11,7 @@ set shiftwidth=4
 set smartindent
 set smarttab
 set mouse=a
-set number
+set number relativenumber
 colo codedark
 set termguicolors
 set bo=all

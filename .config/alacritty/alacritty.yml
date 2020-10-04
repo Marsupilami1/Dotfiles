@@ -164,8 +164,8 @@ colors:
   # Default colors
   primary:
       #background: '#161227'
-    background: '#161227'
-    foreground: '#f5fdca'
+    background: '#1e1e1e'
+    foreground: '#d4d4d4'
 
     # Bright and dim foreground colors
     #
@@ -221,25 +221,25 @@ colors:
   #    foreground: CellBackground
 
   normal:
-    black:   '#050004'
-    red:     '#dd4040'
-    green:   '#069e50'
-    yellow:  '#d0d00f'
-    blue:    '#3b50ff'
-    magenta: '#9000b6'
-    cyan:    '#0cc292'
-    white:   '#c9d3ee'
+    black:   '#171f24'
+    red:     '#f44747'
+    green:   '#6a9955'
+    yellow:  '#c586c0'
+    blue:    '#569cd6'
+    magenta: '#646695'
+    cyan:    '#207fa1'
+    white:   '#d4d4d4'
   
   # Bright colors
   bright:
-    black:   '#4e4e6c'
-    red:     '#ff5959'
-    green:   '#0cec80'
-    yellow:  '#ffff00'
-    blue:    '#6161ff'
-    magenta: '#de00ff'
-    cyan:    '#4cdddd'
-    white:   '#f3fbcc'
+    black:   '#dd8000'
+    red:     '#d16969'
+    green:   '#b5cea8'
+    yellow:  '#d7ba7d'
+    blue:    '#9cdcfe'
+    magenta: '#bb80b3'
+    cyan:    '#85ddff'
+    white:   '#d4d4d4'
 
   # Dim colors
   #
@@ -328,7 +328,7 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Underline
+  style: Beam
 
   # Vi mode cursor style
   #
@@ -336,7 +336,7 @@ cursor:
   # the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
-  vi_mode_style: Beam
+  #vi_mode_style: Beam
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.

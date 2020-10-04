@@ -2,7 +2,7 @@
 
 /* appearance */
 static const char font[]        = "Ubuntu Mono:size=9";
-static const char* normbgcolor  = "#161227";
+static const char* normbgcolor  = "#1e1e1e";
 static const char* normfgcolor  = "#dddddd";
 static const char* selbgcolor   = "#2c244e";
 static const char* selfgcolor   = "#ffffff";
