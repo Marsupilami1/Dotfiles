@@ -221,12 +221,12 @@ colors:
   #    foreground: CellBackground
 
   normal:
-    black:   '#171f24'
-    red:     '#f44747'
-    green:   '#6a9955'
-    yellow:  '#c586c0'
-    blue:    '#569cd6'
-    magenta: '#646695'
+    black:   '#000000'
+    red:     '#b93936'
+    green:   '#69b200'
+    yellow:  '#d576d0'
+    blue:    '#e34b2e'
+    magenta: '#4a222a'
     cyan:    '#207fa1'
     white:   '#d4d4d4'
   
@@ -234,11 +234,11 @@ colors:
   bright:
     black:   '#dd8000'
     red:     '#d16969'
-    green:   '#b5cea8'
+    green:   '#78fe79'
     yellow:  '#d7ba7d'
-    blue:    '#9cdcfe'
+    blue:    '#3284d4'
     magenta: '#bb80b3'
-    cyan:    '#85ddff'
+    cyan:    '#30cac7'
     white:   '#d4d4d4'
 
   # Dim colors
