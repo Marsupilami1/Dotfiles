@@ -68,27 +68,37 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-c", "-m", dmenumon, "-l", "20", "-bw", "1", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", "#000000", NULL };
+static const char *htopcmd[]  = { "st", "-e", "htop", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *termtabcmd[]  = { "tabbed", "-c", "alacritty", "--embed", NULL };
 static const char *filemgrcmd[]  = { "pcmanfm", NULL };
 static const char *editcmd[]  = { "geany", NULL };
+static const char *nvimcmd[]  = { "st", "-e", "nvim", NULL };
 static const char *surfcmd[]  = { "tabbed", "-c", "surf", "-e", NULL };
 static const char *frfxcmd[]  = { "firefox", NULL };
 static const char *mathcmd[]  = { "/home/martin/myScripts/dmenuScripts/math_to_tex.sh", NULL };
 static const char *emacscmd[] = { "emacsclient", "-create-frame", "--alternate-editor=''", NULL };
+static const char *bepocmd[] = { "setxkbmap", "fr", "bepo", NULL };
+static const char *azercmd[] = { "setxkbmap", "fr", "azerty", NULL };
+static const char *xkillcmd[] = { "xkill", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
 	/* modifier             key    function        argument */
 	{ MODKEY,               33,    spawn,          {.v = dmenucmd } },// p
 	{ MODKEY,               36,    spawn,          {.v = termcmd } }, // Return
+	{ MODKEY|ShiftMask,     33,    spawn,          {.v = htopcmd } }, // p
 	{ MODKEY,               22,    spawn,          {.v = termtabcmd } }, // BackSpace
 	{ MODKEY|ShiftMask,     36,    spawn,          {.v = filemgrcmd } }, // Return
 	{ MODKEY,               42,    spawn,          {.v = editcmd } }, // g
+	{ MODKEY,               55,    spawn,          {.v = nvimcmd } }, // v
 	{ MODKEY,               41,    spawn,          {.v = frfxcmd } }, // f
 	{ MODKEY,               47,    spawn,          {.v = mathcmd } }, // m
 	{ MODKEY,               39,    spawn,          {.v = surfcmd } }, // s
 	{ MODKEY,               26,    spawn,          {.v = emacscmd } }, // e
+	{ MODKEY|ControlMask,   113,   spawn,          {.v = azercmd } }, // left arrow
+	{ MODKEY|ControlMask,   114,   spawn,          {.v = bepocmd } }, // right arrow
+	{ MODKEY,               53,    spawn,          {.v = xkillcmd } }, // x
 	{ MODKEY,               56,    togglebar,      {0} },             // b
 	{ MODKEY,               44,    focusstack,     {.i = +1 } },      // j
 	{ MODKEY,               45,    focusstack,     {.i = -1 } },      // k
@@ -98,6 +108,8 @@ static Key keys[] = {
 	{ MODKEY,               40,    incnmaster,     {.i = -1 } },      // d
 	{ MODKEY,               43,    setmfact,       {.f = -0.05} },    // h
 	{ MODKEY,               46,    setmfact,       {.f = +0.05} },    // l
+	{ MODKEY|ShiftMask,     43,    setmfact,       {.f = -0.01} },    // h
+	{ MODKEY|ShiftMask,     46,    setmfact,       {.f = +0.01} },    // l
 	{ MODKEY,               27,    reorganizetags, {0} },             // r
 	{ MODKEY,               21,    setmequal,      {0} },             // =
 	{ MODKEY,               25,    zoom,           {0} },             // z
