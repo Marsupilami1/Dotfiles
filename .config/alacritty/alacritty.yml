@@ -135,7 +135,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 9.5
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -221,25 +221,25 @@ colors:
   #    foreground: CellBackground
 
   normal:
-    black:   '#000000'
-    red:     '#b93936'
-    green:   '#69b200'
-    yellow:  '#d576d0'
-    blue:    '#e34b2e'
-    magenta: '#4a222a'
-    cyan:    '#207fa1'
-    white:   '#d4d4d4'
+    black:   "#171f24"
+    red:     "#f44747"
+    green:   "#6ab955"
+    yellow:  "#c586c0"
+    blue:    "#569cd6"
+    magenta: "#646695"
+    cyan:    "#207fa1"
+    white:   "#d4d4d4"
   
   # Bright colors
   bright:
-    black:   '#dd8000'
-    red:     '#d16969'
-    green:   '#78fe79'
-    yellow:  '#d7ba7d'
-    blue:    '#3284d4'
-    magenta: '#bb80b3'
-    cyan:    '#30cac7'
-    white:   '#d4d4d4'
+    black:   "#dd8000"
+    red:     "#d16969"
+    green:   "#b5cea8"
+    yellow:  "#d7ba7d"
+    blue:    "#9cdcfe"
+    magenta: "#bb80b3"
+    cyan:    "#85ddff"
+    white:   "#d4d4d4"
 
   # Dim colors
   #

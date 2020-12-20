@@ -7,6 +7,7 @@ set linebreak
 set showmatch
 set hlsearch
 set autoindent
+set scrolloff=5
 set shiftwidth=4
 set smartindent
 set smarttab

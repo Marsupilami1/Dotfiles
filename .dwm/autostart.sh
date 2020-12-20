@@ -7,7 +7,8 @@ emacs --bg-daemon &
 
 #feh --bg-fill Fractal.png &
 #/home/martin/Documents/Travail/Prog/C/Mandelbrot/mandelbrotppm/Mandelbrotppm &
-~/.fehbg
+#~/.fehbg
+feh --bg-fill "/home/martin/Wallpaper/$(ls /home/martin/Wallpaper/ | shuf | head -n 1)"
 
 dte(){
     dte="$(date +"%H:%M")"

@@ -8,7 +8,7 @@
  '(custom-safe-themes
    '("5036346b7b232c57f76e8fb72a9c0558174f87760113546d3a9838130f1cdb74" default))
  '(package-selected-packages
-   '(smart-mode-line-powerline-theme powerline-evil highlight-indent-guides org-plus-contrib irony org-bullets))
+   '(flycheck-grammalecte smart-mode-line-powerline-theme powerline-evil highlight-indent-guides org-plus-contrib irony org-bullets))
  '(scroll-margin 5))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -12,11 +12,11 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#ff8000";
+static const char col_cyan[]        = "#d007b4";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  "#ff8000"  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 	[SchemeStatus] = { "#ffffff", "#32204a",  "#171a1b"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel] = { "#000000", "#e4d5b6",  "#16630c"  }, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNormP] = { "#ffffff", "#4a222a",  "#171a1b"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
@@ -36,7 +36,9 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "feh",      NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       2,            0,           -1 },
+	//{ "Discord",  NULL,       NULL,       3,            0,           -1 },
+	//{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -46,8 +48,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "|M|",      centeredmaster },   /* first entry is default */
+	{ "|+|",      grid },
 	{ "[]=",      tile },
+	{ "|M|",      centeredmaster },   /* first entry is default */
 	{ "[M]",      monocle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ ">M>",      centeredfloatingmaster },
@@ -72,12 +75,16 @@ static const char *htopcmd[]  = { "st", "-e", "htop", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *termtabcmd[]  = { "tabbed", "-c", "alacritty", "--embed", NULL };
 static const char *filemgrcmd[]  = { "pcmanfm", NULL };
+static const char *nmtuicmd[]  = { "st", "-e", "nmtui", NULL };
 static const char *editcmd[]  = { "geany", NULL };
-static const char *nvimcmd[]  = { "st", "-e", "nvim", NULL };
-static const char *surfcmd[]  = { "tabbed", "-c", "surf", "-e", NULL };
+static const char *nvimcmd[]  = { "st", "-e", "nvim", "-c", "Explore", "/home/martin", NULL };
+static const char *zathcmd[]  = { "/home/martin/.dwm/browseZath.sh", NULL };
+static const char *vimbcmd[]  = { "tabbed", "-c", "vimb", "-e", NULL };
 static const char *frfxcmd[]  = { "firefox", NULL };
+static const char *dcrdcmd[]  = { "discord", NULL };
 static const char *mathcmd[]  = { "/home/martin/myScripts/dmenuScripts/math_to_tex.sh", NULL };
-static const char *emacscmd[] = { "emacsclient", "-create-frame", "--alternate-editor=''", NULL };
+static const char *emacscmd[] = { "emacsclient", "-c", "--alternate-editor=''", NULL };
+static const char *diredcmd[] = { "emacsclient", "-c", "-a", "''", "-e", "(dired nil)", NULL };
 static const char *bepocmd[] = { "setxkbmap", "fr", "bepo", NULL };
 static const char *azercmd[] = { "setxkbmap", "fr", "azerty", NULL };
 static const char *xkillcmd[] = { "xkill", NULL };
@@ -90,12 +97,16 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,     33,    spawn,          {.v = htopcmd } }, // p
 	{ MODKEY,               22,    spawn,          {.v = termtabcmd } }, // BackSpace
 	{ MODKEY|ShiftMask,     36,    spawn,          {.v = filemgrcmd } }, // Return
+	{ MODKEY,               52,    spawn,          {.v = nmtuicmd } }, // w
 	{ MODKEY,               42,    spawn,          {.v = editcmd } }, // g
 	{ MODKEY,               55,    spawn,          {.v = nvimcmd } }, // v
+	{ MODKEY|ShiftMask,     25,    spawn,          {.v = zathcmd } }, // z
 	{ MODKEY,               41,    spawn,          {.v = frfxcmd } }, // f
+	{ MODKEY|ShiftMask,     40,    spawn,          {.v = dcrdcmd } }, // d
 	{ MODKEY,               47,    spawn,          {.v = mathcmd } }, // m
-	{ MODKEY,               39,    spawn,          {.v = surfcmd } }, // s
+	{ MODKEY,               39,    spawn,          {.v = vimbcmd } }, // s
 	{ MODKEY,               26,    spawn,          {.v = emacscmd } }, // e
+	{ MODKEY|ShiftMask,     22,    spawn,          {.v = diredcmd } }, // BaskSpace
 	{ MODKEY|ControlMask,   113,   spawn,          {.v = azercmd } }, // left arrow
 	{ MODKEY|ControlMask,   114,   spawn,          {.v = bepocmd } }, // right arrow
 	{ MODKEY,               53,    spawn,          {.v = xkillcmd } }, // x
@@ -120,11 +131,13 @@ static Key keys[] = {
 	{ MODKEY,               69,    setlayout,      {.v = &layouts[2]} }, // f3
 	{ MODKEY,               70,    setlayout,      {.v = &layouts[3]} }, // f4
 	{ MODKEY,               71,    setlayout,      {.v = &layouts[4]} }, // f5
+	{ MODKEY,               72,    setlayout,      {.v = &layouts[5]} }, // f6
 	{ MODKEY,               87,    setlayout,      {.v = &layouts[0]} }, // num_1
 	{ MODKEY,               88,    setlayout,      {.v = &layouts[1]} }, // num_2
 	{ MODKEY,               89,    setlayout,      {.v = &layouts[2]} }, // num_3
 	{ MODKEY,               83,    setlayout,      {.v = &layouts[3]} }, // num_4
 	{ MODKEY,               84,    setlayout,      {.v = &layouts[4]} }, // num_5
+	{ MODKEY,               85,    setlayout,      {.v = &layouts[5]} }, // num_6
 	{ MODKEY|ControlMask,	30,    cyclelayout,    {.i = -1 } },	  // u
 	{ MODKEY|ControlMask,	32,    cyclelayout,    {.i = +1 } },      // o
 	{ MODKEY,               65,    setlayout,      {0} },             // space
